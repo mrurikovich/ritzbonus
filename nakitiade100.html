@@ -12,10 +12,13 @@
 
     /* Site zaten arka planı kararttığı için burada ikinci, büyük bir mavi katman yok. */
     .promo-overlay { position:fixed; inset:0; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
-    .promo-modal { width:min(730px,100%); height:100%; position:relative; overflow-y:auto; overflow-x:hidden; background:transparent; scrollbar-width:thin; scrollbar-color:rgba(255,212,71,.85) rgba(5,21,42,.7); }
-    .promo-modal::-webkit-scrollbar { width:8px; }
-    .promo-modal::-webkit-scrollbar-track { background:rgba(5,21,42,.7); }
-    .promo-modal::-webkit-scrollbar-thumb { border:2px solid rgba(5,21,42,.7); border-radius:20px; background:rgba(255,212,71,.85); }
+    .promo-modal { width:min(730px,100%); height:100%; position:relative; overflow:hidden; padding-right:9px; background:transparent; }
+    .promo-scroll { height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:rgba(67,132,205,.48) rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track { border-radius:20px; background:rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:20px; background:rgba(67,132,205,.48); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-thumb:hover { background:rgba(89,154,224,.70); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-button { display:none; width:0; height:0; }
 
     .hero { position:relative; z-index:1; }
     .hero-media { height:262px; overflow:hidden; border-radius:15px 15px 0 0; background:var(--navy); box-shadow:0 22px 48px rgba(0,0,0,.28); }
@@ -58,6 +61,7 @@
 <body>
   <div class="promo-overlay">
     <main class="promo-modal">
+      <div class="promo-scroll">
       <section class="hero">
         <div class="hero-media">
           <img src="https://i.ibb.co/KxYvG1L0/ilk-yatirima-100-nakit-iade-1300x474-1.webp" alt="İlk yatırıma yüzde yüz nakit iade">
@@ -107,6 +111,7 @@
 
         <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
       </section>
+      </div>
     </main>
   </div>
 </body>
