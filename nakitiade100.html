@@ -11,8 +11,11 @@
     body { margin:0; background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
 
     /* Site zaten arka planı kararttığı için burada ikinci, büyük bir mavi katman yok. */
-    .promo-overlay { position:fixed; inset:0; display:flex; align-items:flex-start; justify-content:center; padding:12px; overflow-y:auto; background:transparent; }
-    .promo-modal { width:min(730px,100%); position:relative; background:transparent; }
+    .promo-overlay { position:fixed; inset:0; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
+    .promo-modal { width:min(730px,100%); height:100%; position:relative; overflow-y:auto; overflow-x:hidden; background:transparent; scrollbar-width:thin; scrollbar-color:rgba(255,212,71,.85) rgba(5,21,42,.7); }
+    .promo-modal::-webkit-scrollbar { width:8px; }
+    .promo-modal::-webkit-scrollbar-track { background:rgba(5,21,42,.7); }
+    .promo-modal::-webkit-scrollbar-thumb { border:2px solid rgba(5,21,42,.7); border-radius:20px; background:rgba(255,212,71,.85); }
 
     .hero { position:relative; z-index:1; }
     .hero-media { height:262px; overflow:hidden; border-radius:15px 15px 0 0; background:var(--navy); box-shadow:0 22px 48px rgba(0,0,0,.28); }
@@ -79,7 +82,6 @@
               <li>Kampanya kapsamında maksimum 5.000 TL nakit iade bonusu tanımlanmaktadır.</li>
               <li>Kampanya yalnızca hesaba yatırılan ilk bakiye ile oynanan oyunlar için geçerlidir.</li>
               <li>Yatırım Bonusu alan üyeler, %100 Nakit İade Bonusu kampanyasından yararlanamaz.</li>
-              <li>Maksimum çekilebilir kazanç, alınan bonus tutarının 10 katıdır.</li>
             </ul>
           </div>
 
@@ -88,14 +90,16 @@
             <ul class="rules">
               <li>Bonus yalnızca Slot kategorisinde kullanılabilir.</li>
               <li>Bonus tutarının 10 katı kadar çevrim yapılması gerekmektedir.</li>
+              <li>Maksimum çekilebilir kazanç, alınan bonus tutarının 10 katıdır.</li>
             </ul>
           </div>
 
           <div class="rule-group">
             <h2>Spor Bahisleri Çevrim ve Çekim Şartları</h2>
             <ul class="rules">
-              <li>Her Bahiste en az 2 maç oynanmalıdır.</li>
-              <li>Kupon yer alan her maç minimum 1.60 oranında olmalıdır.</li>
+              <li>Bonusun çekilebilir duruma gelmesi için aşağıdaki şartların tamamının yerine getirilmesi gerekmektedir.</li>
+              <li>En az 2 maç oynanmalıdır.</li>
+              <li>Her maç minimum 1.60 oranında olmalıdır.</li>
               <li>Bonus tutarının 5 katı çevrim sağlanmalıdır.</li>
             </ul>
           </div>
