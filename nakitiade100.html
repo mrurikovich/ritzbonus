@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RitzBet | İlk Yatırıma %100 Nakit İade</title>
+  <title>⚡✨ RitzBet | İlk Yatırıma %100 Nakit İade ⚡✨</title>
+
+  <!-- Google Fonts: Montserrat (900) Yükleme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
   <style>
     :root { --gold:#ffd447; --navy:#071a3b; --navy-2:#0d2a5b; --text:#f7f9ff; --muted:#c2cde1; --glass:rgba(16,45,44,.82); }
     * { box-sizing:border-box; }
@@ -29,7 +35,33 @@
     .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 0 10%,#2870b7,transparent 35%),radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
     .content > * { position:relative; }
     .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
-    .title { margin:0; color:var(--gold); text-align:center; font-size:27px; line-height:1.2; letter-spacing:.4px; }
+    
+    /* GÖSTERİŞLİ VE KAYAN IŞIKLI BAŞLIK STİLİ */
+    .title { 
+      margin:0; 
+      font-family:'Montserrat', sans-serif;
+      font-size:27px; 
+      font-weight:900; 
+      line-height:1.2; 
+      text-align:center; 
+      letter-spacing:0.8px; 
+      text-transform:uppercase;
+
+      /* Animasyonlu Kayan Işık Efekti */
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+
+      /* Hafif Işıltı Efekti */
+      filter:drop-shadow(0px 3px 10px rgba(255, 212, 71, 0.45));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
     .intro { max-width:530px; margin:13px auto 25px; color:var(--muted); text-align:center; font-size:14px; line-height:1.6; }
 
     .stats { display:grid; grid-template-columns:1fr 1fr; margin:0 12px 28px; overflow:hidden; border:1px solid rgba(255,255,255,.15); border-radius:10px; background:rgba(11,35,31,.75); }
@@ -53,7 +85,7 @@
       .hero-media { height:auto; aspect-ratio:1300 / 474; border-radius:0; }
       .hero-media img { height:auto; min-height:0; object-fit:contain; }
       .content { padding:31px 20px 26px; }
-      .title { font-size:23px; }
+      .title { font-size:21px; }
       .stats { margin-left:0; margin-right:0; }
     }
     @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
