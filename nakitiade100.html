@@ -11,7 +11,7 @@
     body { margin:0; background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
 
     /* Site zaten arka planı kararttığı için burada ikinci, büyük bir mavi katman yok. */
-    .promo-overlay { position:fixed; inset:0; display:grid; place-items:center; padding:12px; background:transparent; }
+    .promo-overlay { position:fixed; inset:0; display:flex; align-items:flex-start; justify-content:center; padding:12px; overflow-y:auto; background:transparent; }
     .promo-modal { width:min(730px,100%); position:relative; background:transparent; }
 
     .hero { position:relative; z-index:1; }
@@ -19,7 +19,7 @@
     .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
     .hero-media::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 58%,rgba(5,18,38,.32)); }
 
-    .content { position:relative; z-index:1; padding:36px 56px 38px; overflow:hidden; background:linear-gradient(180deg,rgba(6,25,55,.86),rgba(7,29,48,.96)); }
+    .content { position:relative; z-index:1; padding:36px 56px 28px; overflow:hidden; border-radius:0 0 15px 15px; background:linear-gradient(180deg,rgba(6,25,55,.86),rgba(7,29,48,.96)); box-shadow:0 22px 48px rgba(0,0,0,.28); }
     .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 0 10%,#2870b7,transparent 35%),radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
     .content > * { position:relative; }
     .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
@@ -32,19 +32,14 @@
     .stat small { display:block; color:#c5c9d2; font-size:11px; font-weight:500; letter-spacing:.5px; text-transform:uppercase; }
     .stat strong { display:block; margin-top:8px; color:var(--gold); font-size:24px; line-height:1; }
 
-    .details { margin:0 0 23px; padding:0 4px; }
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:22px; }
     .details h2 { display:flex; align-items:center; gap:9px; margin:0 0 14px; padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,.16); color:var(--gold); font-size:18px; }
     .details h2::before { content:"✦"; color:#ff4d93; font-size:18px; }
     .rules { display:grid; gap:10px; margin:0; padding:0 0 0 22px; color:#dce3ee; font-size:13px; line-height:1.55; }
     .rules li::marker { color:var(--gold); }
 
-    .actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:27px 0 0; }
-    .button { min-height:49px; display:grid; place-items:center; padding:12px 15px; border-radius:10px; text-decoration:none; font-size:13px; font-weight:800; transition:transform .18s,box-shadow .18s,background .18s; }
-    .button:hover { transform:translateY(-2px); }
-    .primary { color:#0a1d35; background:linear-gradient(135deg,#ffe27a,#f5bd2b); box-shadow:0 10px 23px rgba(255,211,71,.22); }
-    .secondary { color:#fff; border:1px solid rgba(255,255,255,.27); background:rgba(255,255,255,.07); }
-    .secondary:hover { background:rgba(255,255,255,.13); }
-    .footnote { margin:13px 0 0; color:#aebcd5; text-align:center; font-size:10px; }
+    .footnote { margin:21px 0 0; padding:14px 0 0; border-top:1px solid rgba(255,255,255,.13); color:#aebcd5; text-align:center; font-size:10px; }
 
     @media (max-width:560px) {
       .promo-overlay { padding:0; }
@@ -77,18 +72,35 @@
         </div>
 
         <section class="details">
-          <h2>Kampanya Detayları</h2>
-          <ul class="rules">
-            <li>Kampanya yalnızca ilk yatırım yapan yeni üyeler için geçerlidir.</li>
-            <li>İade, ilk yatırımda oluşan net kayıp üzerinden hesaplanır.</li>
-            <li>Bonus ve kazançların çekimi için 10x çevrim şartı tamamlanmalıdır.</li>
-          </ul>
+          <div class="rule-group">
+            <h2>Genel Şartlar</h2>
+            <ul class="rules">
+              <li>Minimum 100 TL ve üzerindeki ilk yatırımın kaybedilmesi halinde kampanyadan yararlanabilirsiniz.</li>
+              <li>Kampanya kapsamında maksimum 5.000 TL nakit iade bonusu tanımlanmaktadır.</li>
+              <li>Kampanya yalnızca hesaba yatırılan ilk bakiye ile oynanan oyunlar için geçerlidir.</li>
+              <li>Yatırım Bonusu alan üyeler, %100 Nakit İade Bonusu kampanyasından yararlanamaz.</li>
+              <li>Maksimum çekilebilir kazanç, alınan bonus tutarının 10 katıdır.</li>
+            </ul>
+          </div>
+
+          <div class="rule-group">
+            <h2>Slot Çevrim ve Çekim Şartları</h2>
+            <ul class="rules">
+              <li>Bonus yalnızca Slot kategorisinde kullanılabilir.</li>
+              <li>Bonus tutarının 10 katı kadar çevrim yapılması gerekmektedir.</li>
+            </ul>
+          </div>
+
+          <div class="rule-group">
+            <h2>Spor Bahisleri Çevrim ve Çekim Şartları</h2>
+            <ul class="rules">
+              <li>Her Bahiste en az 2 maç oynanmalıdır.</li>
+              <li>Kupon yer alan her maç minimum 1.60 oranında olmalıdır.</li>
+              <li>Bonus tutarının 5 katı çevrim sağlanmalıdır.</li>
+            </ul>
+          </div>
         </section>
 
-        <div class="actions">
-          <a class="button primary" href="#">BONUSU AL</a>
-          <a class="button secondary" href="#kampanya-detaylari">KAMPANYA DETAYLARI</a>
-        </div>
         <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
       </section>
     </main>
