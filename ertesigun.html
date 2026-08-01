@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Tarayıcı sekmesindeki dikkat çekici başlık -->
+  <title>🎁⚡ RitzBet | Bonus Buy Hediye ⚡🎁</title>
+  
+  <!-- Google Fonts: Montserrat (900) Yükleme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --gold:#ffd447; --navy:#071a3b; --navy-2:#0d2a5b; --text:#f7f9ff; --muted:#c2cde1; --glass:rgba(16,45,44,.82); }
+    * { box-sizing:border-box; }
+    html,body { width:100%; max-width:100%; min-height:100%; margin:0; overflow-x:hidden; }
+    body { background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
+
+    .promo-overlay { position:fixed; inset:0; width:100%; max-width:100%; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
+    .promo-modal { width:min(730px,100%); max-width:100%; height:100%; position:relative; overflow:hidden; padding-right:9px; background:transparent; }
+    .promo-scroll { width:100%; max-width:100%; height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:rgba(67,132,205,.48) rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track { border-radius:20px; background:rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:20px; background:rgba(67,132,205,.48); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-thumb:hover { background:rgba(89,154,224,.70); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-button { display:none; width:0; height:0; }
+
+    .hero { position:relative; z-index:1; }
+    .hero-media { height:262px; overflow:hidden; border-radius:15px 15px 0 0; background:var(--navy); box-shadow:0 22px 48px rgba(0,0,0,.28); }
+    .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-media::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 58%,rgba(5,18,38,.32)); }
+
+    .content { position:relative; z-index:1; padding:36px 56px 28px; overflow:hidden; border-radius:0 0 15px 15px; background:linear-gradient(180deg,rgba(6,25,55,.86),rgba(7,29,48,.96)); box-shadow:0 22px 48px rgba(0,0,0,.28); }
+    .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 0 10%,#2870b7,transparent 35%),radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
+    .content > * { position:relative; }
+    .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
+    
+    /* GÖSTERİŞLİ VE KAYAN IŞIKLI BAŞLIK STİLİ */
+    .title { 
+      margin:0 0 14px; 
+      font-family:'Montserrat', sans-serif;
+      font-size:26px; 
+      font-weight:900; 
+      line-height:1.2; 
+      text-align:center; 
+      letter-spacing:0.8px; 
+      text-transform:uppercase;
+
+      /* Animasyonlu Kayan Işık Efekti */
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+
+      /* Hafif Işıltı Efekti */
+      filter:drop-shadow(0px 3px 10px rgba(255, 212, 71, 0.45));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    /* KUTUSUZ, DÜZ AÇIKLAMA METNİ */
+    .intro-text {
+      max-width: 540px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:24px; }
+    .details h2 { display:flex; align-items:center; gap:9px; margin:0 0 14px; padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,.16); color:var(--gold); font-size:18px; font-weight:800; }
+    .details h2::before { content:"✦"; color:#ff4d93; font-size:18px; }
+    
+    /* ÖZEL TABLO STİLİ */
+    .promo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      background: rgba(4, 18, 40, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 212, 71, 0.2);
+    }
+    .promo-table th, .promo-table td {
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 13.5px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .promo-table th {
+      background: rgba(13, 42, 91, 0.8);
+      color: var(--gold);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .promo-table td {
+      color: #dce3ee;
+    }
+    .promo-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .rules { display:grid; gap:10px; margin:0; padding:0 0 0 22px; color:#dce3ee; font-size:13px; line-height:1.55; }
+    .rules li::marker { color:var(--gold); }
+
+    .footnote { margin:21px 0 0; padding:14px 0 0; border-top:1px solid rgba(255,255,255,.13); color:#aebcd5; text-align:center; font-size:10px; }
+
+    @media (max-width:560px) {
+      .promo-overlay { padding:0; }
+      .promo-modal { width:100%; }
+      .hero-media { height:auto; aspect-ratio:1300 / 474; border-radius:0; }
+      .hero-media img { height:auto; min-height:0; object-fit:contain; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:20px; }
+      .intro-text { font-size: 13px; margin-bottom: 22px; }
+      .promo-table th, .promo-table td { padding: 10px 8px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
+  </style>
+</head>
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+      <section class="hero">
+        <div class="hero-media">
+          <img src="https://i.ibb.co/QSbCDYt/g-rsel-2026-08-01-100455976.png" alt="Bonus Buy Hediye">
+        </div>
+      </section>
+
+      <section class="content">
+        <p class="eyebrow">RitzBet'e Özel</p>
+        <h1 class="title">ERTESİ GÜN BONUS BUY HEDİYE</h1>
+
+        <!-- KUTUSUZ AÇIKLAMA METNİ -->
+        <p class="intro-text">
+          Günlük toplam yatırımlarınıza özel ücretsiz Bonus Buy fırsatı! Bugün yatırım yapın, ertesi gün hediye bonusunuzla kazanmaya başlayın.
+        </p>
+
+        <section class="details">
+          <div class="rule-group">
+            <h2>Günlük Toplam Yatırıma Göre Bonuslar</h2>
+            <table class="promo-table">
+              <thead>
+                <tr>
+                  <th>Yatırım Aralığı</th>
+                  <th>Bonus Miktarı</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2.500₺ - 4.999₺</td>
+                  <td><strong>200₺ Değerinde Bonus Buy</strong></td>
+                </tr>
+                <tr>
+                  <td>5.000₺ - 9.999₺</td>
+                  <td><strong>400₺ Değerinde Bonus Buy</strong></td>
+                </tr>
+                <tr>
+                  <td>10.000₺ - 19.999₺</td>
+                  <td><strong>800₺ Değerinde Bonus Buy</strong></td>
+                </tr>
+                <tr>
+                  <td>20.000₺ ve Üzeri</td>
+                  <td><strong>2.000₺ Değerinde Bonus Buy</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="rule-group">
+            <h2>Çevrim ve Çekim Şartları</h2>
+            <ul class="rules">
+              <li>Bonus buy <strong>Wisdom of Athena</strong> Oyununda Geçerlidir.</li>
+              <li>Hesaplama, önceki gün <strong>00.00 – 23.59</strong> arası toplam yatırımlar baz alınarak yapılır.</li>
+              <li>Son 24 saat içerisinde çekim ve yatırım farkınıza göre eklenmektedir.</li>
+              <li>Çekim yapılana kadar yalnızca <strong>Casino (Slot)</strong> alanında işlem yapılmalıdır.</li>
+              <li>Bonus tutarının <strong>10 katı kadar çevrim</strong> yapılması gerekmektedir.</li>
+              <li>Maksimum çekilebilir kazanç, <strong>bonus tutarının 10 katıdır.</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
+      </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
