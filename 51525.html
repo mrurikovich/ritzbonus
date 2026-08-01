@@ -39,7 +39,7 @@
     
     /* GÖSTERİŞLİ VE KAYAN IŞIKLI BAŞLIK STİLİ */
     .title { 
-      margin:0 0 24px; 
+      margin:0 0 14px; 
       font-family:'Montserrat', sans-serif;
       font-size:24px; 
       font-weight:900; 
@@ -63,6 +63,16 @@
       to { background-position: 200% center; }
     }
 
+    /* KUTUSUZ, DÜZ AÇIKLAMA METNİ */
+    .intro-text {
+      max-width: 540px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     .details { margin:0; padding:0 4px; }
     .rule-group + .rule-group { margin-top:24px; }
     .details h2 { display:flex; align-items:center; gap:9px; margin:0 0 14px; padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,.16); color:var(--gold); font-size:18px; font-weight:800; }
@@ -79,6 +89,7 @@
       .hero-media img { height:auto; min-height:0; object-fit:contain; }
       .content { padding:31px 20px 26px; }
       .title { font-size:19px; }
+      .intro-text { font-size: 13px; margin-bottom: 22px; }
     }
     @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
   </style>
@@ -97,6 +108,11 @@
         <p class="eyebrow">RitzBet'e Özel</p>
         <h1 class="title">HER AYIN 5-15-25'İNE ÖZEL %100 ÇEVRİMSİZ YATIRIM BONUSU</h1>
 
+        <!-- KUTUSUZ AÇIKLAMA METNİ -->
+        <p class="intro-text">
+          Her ayın özel günlerinde yapılan yatırımlarda tam %100 çevrimsiz bonus avantajıyla kazancınızı katlama fırsatı sizi bekliyor!
+        </p>
+
         <section class="details">
           <div class="rule-group">
             <h2>Bonus Şartları Nelerdir?</h2>
@@ -106,17 +122,19 @@
               <li>Bu bonus, yalnızca <strong>Pragmatic Play, EGT(Amusnet) ve EGT Digital</strong> sağlayıcılarına ait slot oyunlarında geçerlidir.</li>
               <li>Bu bonustan yararlanabileceğiniz tutar <strong>minimum 500₺, maksimum 10.000₺'dir.</strong></li>
               <li>Bu bonusu gün içinde <strong>2 kez</strong> talep edebilirsiniz.</li>
+              <li>Bonustan yararlanan üyelerimiz kayıp bonusumuzdan yararlanamamaktadır.</li>
             </ul>
           </div>
 
           <div class="rule-group">
             <h2>Bonus Çevrimi ve Kuralları</h2>
             <ul class="rules">
-            <li>Alınan bonus miktarının minimum ve maksimum <strong>10 katı kadar kazanç sağlanabilir</strong> ve yalnızca bir adet çekim işlemi gerçekleştirilebilir.</li>
               <li><strong>Slot Alanında, Anapara+Bonus Miktarının 1 Katı Çevrim yapılmalıdır.</strong></li>
               <li>24 saat içerisinde <strong>çekiminiz olması</strong> durumunda bu bonustan yararlanamazsınız.</li>
               <li>Ana para ve bonusunuzdan oluşan ortak kasa ile Slot alanında <strong>Freespin Satın Alımı Yapılabilir.</strong></li>
               <li>Bonusun <strong>2 gün içerisinde</strong> çevrim şartları tamamlanmalıdır. Aksi halde bonus iptal edilecektir.</li>
+                            <li>Alınan bonus miktarının minimum ve maksimum <strong>10 katı kadar kazanç sağlanabilir</strong> ve yalnızca bir adet çekim işlemi gerçekleştirilebilir.</li>
+
               <li>RitzBet Anapara & Bonus Kuralları geçerlidir.</li>
             </ul>
           </div>
