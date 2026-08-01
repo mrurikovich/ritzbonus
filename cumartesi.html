@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>⚡️✨ RitzBet | %100 Slot Yatırım Bonusu ⚡️✨</title>
+
+  <!-- Google Fonts: Montserrat (900) Yükleme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --gold:#ffd447; --navy:#071a3b; --navy-2:#0d2a5b; --text:#f7f9ff; --muted:#c2cde1; --glass:rgba(16,45,44,.82); }
+    * { box-sizing:border-box; }
+    html,body { width:100%; max-width:100%; min-height:100%; margin:0; overflow-x:hidden; }
+    body { background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
+
+    .promo-overlay { position:fixed; inset:0; width:100%; max-width:100%; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
+    .promo-modal { width:min(730px,100%); max-width:100%; height:100%; position:relative; overflow:hidden; padding-right:9px; background:transparent; }
+    .promo-scroll { width:100%; max-width:100%; height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:rgba(67,132,205,.48) rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track { border-radius:20px; background:rgba(4,20,44,.20); }
+    .promo-scroll::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:20px; background:rgba(67,132,205,.48); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-thumb:hover { background:rgba(89,154,224,.70); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-button { display:none; width:0; height:0; }
+
+    .hero { position:relative; z-index:1; }
+    .hero-media { height:262px; overflow:hidden; border-radius:15px 15px 0 0; background:var(--navy); box-shadow:0 22px 48px rgba(0,0,0,.28); }
+    .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-media::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 58%,rgba(5,18,38,.32)); }
+
+    .content { position:relative; z-index:1; padding:36px 56px 28px; overflow:hidden; border-radius:0 0 15px 15px; background:linear-gradient(180deg,rgba(6,25,55,.86),rgba(7,29,48,.96)); box-shadow:0 22px 48px rgba(0,0,0,.28); }
+    .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 0 10%,#2870b7,transparent 35%),radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
+    .content > * { position:relative; }
+    .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
+    
+    .title { 
+      margin:0; 
+      font-family:'Montserrat', sans-serif;
+      font-size:27px; 
+      font-weight:900; 
+      line-height:1.2; 
+      text-align:center; 
+      letter-spacing:0.8px; 
+      text-transform:uppercase;
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+      filter:drop-shadow(0px 3px 10px rgba(255, 212, 71, 0.45));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .intro { max-width:530px; margin:13px auto 25px; color:var(--muted); text-align:center; font-size:14px; line-height:1.6; }
+
+    .stats { display:grid; grid-template-columns:1fr 1fr; margin:0 12px 28px; overflow:hidden; border:1px solid rgba(255,255,255,.15); border-radius:10px; background:rgba(11,35,31,.75); }
+    .stat { min-height:78px; padding:16px 12px; text-align:center; }
+    .stat + .stat { border-left:1px solid rgba(255,255,255,.15); }
+    .stat small { display:block; color:#c5c9d2; font-size:11px; font-weight:500; letter-spacing:.5px; text-transform:uppercase; }
+    
+    .stats strong { 
+      display:block; 
+      margin-top:8px; 
+      font-size:24px; 
+      line-height:1;
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+      filter:drop-shadow(0px 2px 5px rgba(255, 212, 71, 0.45));
+    }
+
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:22px; }
+    .details h2 { display:flex; align-items:center; gap:9px; margin:0 0 14px; padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,.16); color:var(--gold); font-size:18px; }
+    .details h2::before { content:"✦"; color:#ff4d93; font-size:18px; }
+    .rules { display:grid; gap:10px; margin:0; padding:0 0 0 22px; color:#dce3ee; font-size:13px; line-height:1.55; }
+    .rules li::marker { color:var(--gold); }
+
+    .footnote { margin:21px 0 0; padding:14px 0 0; border-top:1px solid rgba(255,255,255,.13); color:#aebcd5; text-align:center; font-size:10px; }
+
+    @media (max-width:560px) {
+      .promo-overlay { padding:0; }
+      .promo-modal { width:100%; }
+      .hero-media { height:auto; aspect-ratio:1300 / 474; border-radius:0; }
+      .hero-media img { height:auto; min-height:0; object-fit:contain; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:21px; }
+      .stats { margin-left:0; margin-right:0; }
+    }
+    @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
+  </style>
+</head>
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+      <section class="hero">
+        <div class="hero-media">
+          <img src="https://i.ibb.co/3mFBCnR2/promo-ic-2.jpg" alt="promo ic (2)" border="0">
+        </div>
+      </section>
+
+      <section class="content">
+        <p class="eyebrow">RitzBet'e Özel</p>
+        <h2 class="title">%100 SLOT YATIRIM BONUSU</h2>
+        <p class="intro">Cumartesi günlerine özel, yatırımlarınızı ikiye katlayabileceğiniz %100 Slot Yatırım Bonusu ile kazanmaya hazırlanın!</p>
+
+        <section class="details">
+          <div class="rule-group">
+            <h2>Bonus Şartları</h2>
+            <ul class="rules">
+              <li>Cumartesi günleri geçerli olan bu bonusu, gün içinde yapacağınız yatırımlarınızda <b>iki defa</b> kullanabilirsiniz.</li>
+              <li>Minimum <b>100 TL</b> ve üzeri olan yatırımlarınızda bu bonusu alabilirsiniz.</li>
+              <li>Bu bonustan maksimum yararlanabileceğiniz tutar <b>2.500 TL</b>'dir.</li>
+              <li>Yatırımınızı sağladıktan sonra bakiyenizde herhangi bir harcama yapmadan bonusunuzu talep edebilirsiniz.</li>
+              <li><b>24 saat</b> içerisinde çekiminiz olması durumunda bu bonustan yararlanamazsınız.</li>
+            </ul>
+          </div>
+
+          <div class="rule-group">
+            <h2>Bonus Çevrimi ve Kuralları</h2>
+            <ul class="rules">
+              <li>Almış olduğunuz bonusun <b>30 katı</b> ve anaparanın <b>1 katı</b> kadar çevrim yaptıktan sonra çekim yapabilirsiniz.</li>
+              <li>Almış olduğunuz bonus <b>sadece Slot</b> alanında geçerlidir. 
+              <li>Bu bonus ile maksimum anaparanızın <b>10 katı</b> kadar kazanç elde edebilirsiniz.</li>
+            </ul>
+          </div>
+        </section>
+
+        <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
+      </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
