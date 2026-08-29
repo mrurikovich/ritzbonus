@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <!-- League logos are embedded as data URIs; no external logo requests. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>⚡ RitzBet | Kombine Kuponuna %50 Ek Kazanç ⚡</title>
+
+  <!-- Google Fonts: Montserrat (900) Yükleme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --gold:#ffd447; --text:#f7f9ff; --muted:#c9d0dc; --panel:rgba(0,0,0,.42); --panel-2:rgba(0,0,0,.50); --line:rgba(255,255,255,.16); }
+    * { box-sizing:border-box; }
+    html,body { width:100%; max-width:100%; min-height:100%; margin:0; overflow-x:hidden; }
+    body { background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
+
+    /* Site zaten arka planı kararttığı için burada ikinci, büyük bir mavi katman yok. */
+    .promo-overlay { position:fixed; inset:0; width:100%; max-width:100%; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
+    .promo-modal { width:min(730px,100%); max-width:100%; height:100%; position:relative; overflow:hidden; padding-right:9px; background:transparent; }
+    .promo-scroll { width:100%; max-width:100%; height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.26) rgba(255,255,255,.06); }
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track { border-radius:20px; background:rgba(255,255,255,.06); }
+    .promo-scroll::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:20px; background:rgba(255,255,255,.26); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,.45); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-button { display:none; width:0; height:0; }
+
+    .hero { position:relative; z-index:1; }
+    .hero-media { height:auto; aspect-ratio:1000 / 667; overflow:hidden; border-radius:15px 15px 0 0; background:transparent; box-shadow:0 18px 40px rgba(0,0,0,.22); }
+    .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-media::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 62%,rgba(0,0,0,.26)); }
+
+    .content { position:relative; z-index:1; padding:36px 56px 28px; overflow:hidden; border-radius:0 0 15px 15px; background:linear-gradient(180deg,var(--panel),var(--panel-2)); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 18px 40px rgba(0,0,0,.22); }
+    .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
+    .content > * { position:relative; }
+    .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
+    
+    /* GÖSTERİŞLİ VE KAYAN IŞIKLI BAŞLIK STİLİ */
+    .title { 
+      margin:0; 
+      font-family:'Montserrat', sans-serif;
+      font-size:27px; 
+      font-weight:900; 
+      line-height:1.2; 
+      text-align:center; 
+      letter-spacing:0.8px; 
+      text-transform:uppercase;
+
+      /* Animasyonlu Kayan Işık Efekti */
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+
+      /* Hafif Işıltı Efekti */
+      filter:drop-shadow(0px 3px 10px rgba(255, 212, 71, 0.45));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .intro { max-width:530px; margin:13px auto 25px; color:var(--muted); text-align:center; font-size:14px; line-height:1.6; }
+
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:22px; }
+    .details h2 { display:flex; align-items:center; gap:9px; margin:0 0 14px; padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,.16); color:var(--gold); font-size:18px; }
+    .details h2::before { content:"✦"; color:#ff4d93; font-size:18px; }
+    .rules { display:grid; gap:10px; margin:0; padding:0 0 0 22px; color:#e2e6ee; font-size:13px; line-height:1.55; }
+    .rules li::marker { color:var(--gold); }
+
+
+    .league-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      margin-top:4px;
+    }
+    .league-card {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:62px;
+      padding:10px 13px;
+      border:1px solid rgba(255,212,71,.20);
+      border-radius:12px;
+      background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(0,0,0,.22));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .league-logo {
+      width:42px;
+      height:42px;
+      flex:0 0 38px;
+      object-fit:contain;
+      border-radius:8px;
+      background:rgba(255,255,255,.92);
+      padding:4px;
+    }
+    .league-name {
+      color:#f7f9ff;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.25;
+    }
+    @media (max-width:560px) {
+      .league-grid { grid-template-columns:1fr; }
+    }
+
+    .footnote { margin:21px 0 0; padding:14px 0 0; border-top:1px solid rgba(255,255,255,.13); color:#b9c0cc; text-align:center; font-size:10px; }
+
+    @media (max-width:560px) {
+      .promo-overlay { padding:0; }
+      .promo-modal { width:100%; }
+      .hero-media { height:auto; aspect-ratio:750 / 350; border-radius:0; }
+      .hero-media img { height:100%; min-height:0; object-fit:cover; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:21px; }
+    }
+    @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
+  </style>
+</head>
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+      <section class="hero">
+        <div class="hero-media">
+          <img src="https://i.ibb.co/DgtfFqmW/hdek50.png" alt="ilk-yatirima-100-nakit-iade">
+        </div>
+      </section>
+
+      <section class="content">
+        <p class="eyebrow">Ritzbet'te Yeni Özellik</p>
+        <h1 class="title">Kombine Kuponuna Çevrimsiz Koşulsuz %50 Ek Kazanç!</h1>
+        <p class="intro">
+          Kombine oran yükseltme özelliği, kuponlarda seçmiş olduğunuz karşılaşmaların oranlarını yükseltmek için size özel bir yenilik!
+        </p>
+
+        <div class="details">
+          <div class="rule-group">
+            <h2>Kombine Oran Yükseltme</h2>
+            <ul class="rules">
+              <li><strong>2 maç:</strong> %3 ek oran</li>
+              <li><strong>3 maç:</strong> %5 ek oran</li>
+              <li><strong>4 maç:</strong> %7 ek oran</li>
+              <li><strong>5 maç:</strong> %10 ek oran</li>
+              <li><strong>6 maç:</strong> %15 ek oran</li>
+              <li><strong>7 maç:</strong> %20 ek oran</li>
+              <li><strong>8 maç:</strong> %25 ek oran</li>
+              <li><strong>9 maç:</strong> %35 ek oran</li>
+              <li><strong>10 maç ve fazlası:</strong> %50 ek oran</li>
+            </ul>
+          </div>
+
+          <div class="rule-group">
+            <h2>Örnek</h2>
+            <p class="intro" style="margin:0; text-align:left;">
+              Seçtiğiniz karşılaşmaların toplam kombine oranına, kupondaki maç sayısına göre yukarıdaki oranlarda ek yükseltme sağlanır.
+            </p>
+          </div>
+
+          <div class="rule-group">
+            <h2>Kurallar</h2>
+            <ul class="rules">
+              <li>Kombine içerisinde karşılaşmalar <strong>en az 1.50 oranında</strong> olmalıdır.</li>
+              <li>Yalnızca <strong>Futbol ve Basketbol</strong> karşılaşmaları için geçerlidir.</li>
+              <li>Bu özelliği kullanmak için canlı destek hattına bağlanmanıza gerek yoktur.</li>
+              <li> Kombine oran yükseltme özelliği sistem tarafından otomatik olarak uygulanır. Ekstra işlem yapmanıza gerek yoktur.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="footnote">
+          Kombine oran yükseltme özelliği, kuponlarda seçmiş olduğunuz karşılaşmaların oranlarını yükseltmek için size özel bir yenilik!
+        </p>
+      </section>
+
+        <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
+      </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
