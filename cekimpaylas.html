@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Tarayıcı sekmesindeki cafcaflı başlık -->
+  <title>⚡✨ RitzBet | Çekim Paylaş Bonusu ⚡✨</title>
+
+  <!-- Google Fonts: Montserrat (900) Yükleme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --gold:#ffd447; --text:#f7f9ff; --muted:#c9d0dc; --panel:rgba(0,0,0,.42); --panel-2:rgba(0,0,0,.50); --line:rgba(255,255,255,.16); }
+    * { box-sizing:border-box; }
+    html,body { width:100%; max-width:100%; min-height:100%; margin:0; overflow-x:hidden; }
+    body { background:transparent; color:var(--text); font-family:Inter,Arial,sans-serif; }
+
+    /* Site zaten arka planı kararttığı için burada ikinci bir renk katmanı yok. */
+    .promo-overlay { position:fixed; inset:0; width:100%; max-width:100%; display:flex; align-items:stretch; justify-content:center; padding:0; overflow:hidden; background:transparent; }
+    .promo-modal { width:min(730px,100%); max-width:100%; height:100%; position:relative; overflow:hidden; padding-right:9px; background:transparent; }
+    .promo-scroll { width:100%; max-width:100%; height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.26) rgba(255,255,255,.06); }
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track { border-radius:20px; background:rgba(255,255,255,.06); }
+    .promo-scroll::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:20px; background:rgba(255,255,255,.26); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,.45); background-clip:padding-box; }
+    .promo-scroll::-webkit-scrollbar-button { display:none; width:0; height:0; }
+
+    .hero { position:relative; z-index:1; }
+    .hero-media { height:auto; aspect-ratio:750 / 350; overflow:hidden; border-radius:15px 15px 0 0; background:transparent; box-shadow:0 18px 40px rgba(0,0,0,.22); }
+    .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-media::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 62%,rgba(0,0,0,.26)); }
+
+    .content { position:relative; z-index:1; padding:36px 56px 28px; overflow:hidden; border-radius:0 0 15px 15px; background:linear-gradient(180deg,var(--panel),var(--panel-2)); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 18px 40px rgba(0,0,0,.22); }
+    .content::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.2; background:radial-gradient(circle at 95% 85%,#d4a522,transparent 31%); }
+    .content > * { position:relative; }
+    .eyebrow { margin:0 0 9px; color:var(--gold); text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; }
+
+    /* GÖSTERİŞLİ VE KAYAN IŞIKLI BAŞLIK STİLİ */
+    .title {
+      margin:0 0 24px;
+      font-family:'Montserrat', sans-serif;
+      font-size:26px;
+      font-weight:900;
+      line-height:1.2;
+      text-align:center;
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+
+      /* Animasyonlu Kayan Işık Efekti */
+      background: linear-gradient(90deg, #ffd447, #ffffff, #ffd447);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+
+      /* Hafif Işıltı Efekti */
+      filter:drop-shadow(0px 3px 10px rgba(255, 212, 71, 0.45));
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    /* Tablo Tasarımı */
+    .promo-table-container { margin:0 0 24px; overflow:hidden; border-radius:8px; border:1px solid rgba(255,255,255,.2); }
+    .promo-table { width:100%; border-collapse:collapse; text-align:center; font-size:14px; }
+    .promo-table th, .promo-table td { padding:14px 12px; border:1px solid rgba(255,255,255,.15); }
+    .promo-table th { background:rgba(255,255,255,.05); color:#fff; font-weight:700; }
+    .promo-table td { color:var(--text); background:rgba(0,0,0,.26); }
+
+    .details { margin:0; padding:0 4px; }
+    .rules { display:grid; gap:12px; margin:0; padding:0 0 0 22px; color:#e2e6ee; font-size:13px; line-height:1.55; }
+    .rules li::marker { color:var(--gold); }
+
+    .footnote { margin:21px 0 0; padding:14px 0 0; border-top:1px solid rgba(255,255,255,.13); color:#b9c0cc; text-align:center; font-size:10px; }
+
+    @media (max-width:560px) {
+      .promo-overlay { padding:0; }
+      .promo-modal { width:100%; }
+      .hero-media { height:auto; aspect-ratio:750 / 350; border-radius:0; }
+      .hero-media img { height:100%; min-height:0; object-fit:cover; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:20px; }
+      .promo-table th, .promo-table td { padding:10px 8px; font-size:12px; }
+    }
+    @media (prefers-reduced-motion:no-preference) { .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; } @keyframes enter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } } }
+  </style>
+</head>
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+      <section class="hero">
+        <div class="hero-media">
+          <img src="https://i.ibb.co/zWGn9Jnk/25k-cekim-paylas-bonusu-promo.webp" alt="RitzBet'te Kazandıran Çark Yeniden Aktif">
+        </div>
+      </section>
+
+      <section class="content">
+        <p class="eyebrow">RitzBet'e Özel</p>
+        <h1 class="title">ÇEKİM PAYLAŞ BONUSU</h1>
+
+        <div class="promo-table-container">
+          <table class="promo-table">
+            <thead>
+              <tr>
+                <th>Çekim Aralığı</th>
+                <th>Bonus Miktarı</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.000₺ - 9.999₺</td>
+                <td>200₺ Bonus</td>
+              </tr>
+              <tr>
+                <td>10.000₺ - 19.999₺</td>
+                <td>1.000₺ Bonus</td>
+              </tr>
+              <tr>
+                <td>20.000₺ - 29.999₺</td>
+                <td>2.000₺ Bonus</td>
+              </tr>
+              <tr>
+                <td>30.000₺ - 49.999₺</td>
+                <td>3.000₺ Bonus</td>
+              </tr>
+              <tr>
+                <td>50.000₺ - 249.999₺</td>
+                <td>5.000₺ Bonus</td>
+              </tr>
+              <tr>
+                <td>250.000₺ ve üzeri</td>
+                <td>10.000₺ Bonus</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <section class="details">
+          <ul class="rules">
+             <li>Çekim tutarına göre eklenecek bonus bilgileri yukarıdaki tabloda belirtilmiştir.</li>
+            <li><strong>Minimum 1.000₺ ve üstü para çekim işlemi</strong> sağlamanız durumunda bu bonustan yararlanabilirsiniz.</li>
+            <li><strong>Bonus talebinde bulunabilmeniz için</strong> aşağıda belirtilen adımların eksiksiz olarak tamamlanması gerekmektedir.</li>
+            <li><strong>1. Adım:</strong> Başarılı para çekim işleminizi forumlarda kamuya açık şekilde paylaşın.</li>
+            <li><strong>2. Adım:</strong> Twitter, Telegram ve WhatsApp hesaplarımızı takip edin.</li>
+            <li><strong>3. Adım:</strong> Paylaşımlarınızın ekran görüntüsü ve linkini (URL) <strong>Canlı Destek</strong> üzerinden iletmeniz gereklidir.</li>
+            <li>Bu bonus, Deneme Bonusu ve herhangi bir etkinlik bonusu ile yapılan para çekim işlemleri için geçerli değildir.</li>
+            <li>Bu bonus, yalnızca <strong>slot alanlarında</strong> kullanılabilir.</li>
+            <li>Slot oyunlarında <strong>Bonus Satın Al (Buy Feature)</strong> işlemi yapılabilir.</li>
+            <li>Slot alanında, bonus miktarının <strong>5 katı çevrim</strong> yapılmalıdır.</li>
+            <li>Bu bonustan <strong>7 gün içerisinde yalnızca 1 kez</strong> faydalanabilirsiniz. Çekim işleminizi tamamladıktan sonra paylaşımınızı <strong>24 saat içerisinde</strong> paylaşmanız gerekmektedir.</li>
+            <li>Alınan bonus miktarının <strong>minimum 3, maksimum 5 katı</strong> kadar kazanç sağlanabilir ve bu bonus ile yalnızca <strong>bir adet çekim işlemi</strong> gerçekleştirilebilir.</li>
+          </ul>
+        </section>
+
+        <p class="footnote" id="kampanya-detaylari">RitzBet kampanya şartlarını değiştirme veya sonlandırma hakkını saklı tutar.</p>
+      </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
