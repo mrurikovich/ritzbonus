@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>👑 Ritz x Mercedes-Benz | Haftalık Dev Çekiliş</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:#ffd447;
+      --text:#f7f9ff;
+      --muted:#c9d0dc;
+      --panel:rgba(0,0,0,.44);
+      --panel-2:rgba(0,0,0,.52);
+      --line:rgba(255,255,255,.16);
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html,body {
+      width:100%;
+      max-width:100%;
+      min-height:100%;
+      margin:0;
+      overflow-x:hidden;
+    }
+
+    body {
+      background:transparent;
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .promo-overlay {
+      position:fixed;
+      inset:0;
+      width:100%;
+      max-width:100%;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      padding:0;
+      overflow:hidden;
+      background:transparent;
+    }
+
+    .promo-modal {
+      width:min(730px,100%);
+      max-width:100%;
+      height:100%;
+      position:relative;
+      overflow:hidden;
+      padding-right:9px;
+      background:transparent;
+    }
+
+    .promo-scroll {
+      width:100%;
+      max-width:100%;
+      height:100%;
+      overflow-y:auto;
+      overflow-x:hidden;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(255,255,255,.26) rgba(255,255,255,.06);
+    }
+
+    .promo-scroll::-webkit-scrollbar {
+      width:6px;
+    }
+
+    .promo-scroll::-webkit-scrollbar-track {
+      border-radius:20px;
+      background:rgba(255,255,255,.06);
+    }
+
+    .promo-scroll::-webkit-scrollbar-thumb {
+      border:2px solid transparent;
+      border-radius:20px;
+      background:rgba(255,255,255,.26);
+      background-clip:padding-box;
+    }
+
+    .promo-scroll::-webkit-scrollbar-thumb:hover {
+      background:rgba(255,255,255,.45);
+      background-clip:padding-box;
+    }
+
+    .promo-scroll::-webkit-scrollbar-button {
+      display:none;
+      width:0;
+      height:0;
+    }
+
+    .hero {
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-media {
+      height:auto;
+      aspect-ratio:750 / 350;
+      overflow:hidden;
+      border-radius:15px 15px 0 0;
+      background:transparent;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .hero-media img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .hero-media::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(
+        180deg,
+        transparent 58%,
+        rgba(0,0,0,.30)
+      );
+    }
+
+    .content {
+      position:relative;
+      z-index:1;
+      padding:34px 56px 28px;
+      overflow:hidden;
+      border-radius:0 0 15px 15px;
+      background:linear-gradient(
+        180deg,
+        var(--panel),
+        var(--panel-2)
+      );
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .content::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.20;
+      background:
+        radial-gradient(
+          circle at 95% 85%,
+          #d4a522,
+          transparent 31%
+        );
+    }
+
+    .content > * {
+      position:relative;
+    }
+
+    .eyebrow {
+      margin:0 0 8px;
+      color:var(--gold);
+      text-align:center;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    .title {
+      margin:0 0 14px;
+      font-family:'Montserrat',sans-serif;
+      font-size:25px;
+      font-weight:900;
+      line-height:1.2;
+      text-align:center;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+
+      background:linear-gradient(
+        90deg,
+        #ffd447,
+        #ffffff,
+        #ffd447
+      );
+
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 3s linear infinite;
+
+      filter:drop-shadow(
+        0px 3px 10px rgba(255,212,71,.45)
+      );
+    }
+
+    @keyframes shine {
+      to {
+        background-position:200% center;
+      }
+    }
+
+    .intro-text {
+      max-width:570px;
+      margin:0 auto 24px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .dates {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:0 auto 24px;
+      max-width:570px;
+    }
+
+    .date-box {
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:10px;
+      background:rgba(0,0,0,.22);
+      text-align:center;
+    }
+
+    .date-label {
+      display:block;
+      margin-bottom:4px;
+      color:#aeb6c5;
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .date-value {
+      color:var(--gold);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .details {
+      margin:0;
+      padding:0 4px;
+    }
+
+    .rule-group + .rule-group {
+      margin-top:23px;
+    }
+
+    .details h2 {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:0 0 14px;
+      padding:0 0 11px;
+      border-bottom:1px solid rgba(255,255,255,.16);
+      color:var(--gold);
+      font-size:17px;
+      font-weight:800;
+    }
+
+    .details h2::before {
+      content:"✦";
+      color:#ff4d93;
+      font-size:18px;
+    }
+
+    .prizes {
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .prizes li {
+      padding:13px 15px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:10px;
+      background:rgba(0,0,0,.20);
+      color:#e2e6ee;
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .prizes strong {
+      color:var(--gold);
+    }
+
+    .rules {
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding:0 0 0 22px;
+      color:#e2e6ee;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .rules li::marker {
+      color:var(--gold);
+    }
+
+    .highlight {
+      margin:20px 0 0;
+      padding:16px 18px;
+      border:1px solid rgba(255,212,71,.25);
+      border-radius:12px;
+      background:rgba(255,212,71,.07);
+      color:#f1f3f8;
+      text-align:center;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .highlight strong {
+      color:var(--gold);
+    }
+
+    .ticket-button {
+      display:block;
+      width:100%;
+      max-width:420px;
+      margin:20px auto 0;
+      padding:13px 18px;
+      border-radius:10px;
+      background:linear-gradient(90deg,#ffd447,#fff0a1,#ffd447);
+      background-size:200% auto;
+      color:#111;
+      text-align:center;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.2px;
+      box-shadow:0 8px 22px rgba(255,212,71,.18);
+      transition:.25s ease;
+    }
+
+    .ticket-button:hover {
+      background-position:100% center;
+      transform:translateY(-1px);
+    }
+
+    .footnote {
+      margin:21px 0 0;
+      padding:14px 0 0;
+      border-top:1px solid rgba(255,255,255,.13);
+      color:#b9c0cc;
+      text-align:center;
+      font-size:10px;
+      line-height:1.5;
+    }
+
+    @media (max-width:560px) {
+
+      .promo-overlay {
+        padding:0;
+      }
+
+      .promo-modal {
+        width:100%;
+      }
+
+      .hero-media {
+        height:auto;
+        aspect-ratio:750 / 350;
+        border-radius:0;
+      }
+
+      .hero-media img {
+        height:100%;
+        min-height:0;
+        object-fit:cover;
+      }
+
+      .content {
+        padding:29px 20px 25px;
+      }
+
+      .title {
+        font-size:20px;
+      }
+
+      .intro-text {
+        font-size:13px;
+        margin-bottom:20px;
+      }
+
+      .dates {
+        gap:8px;
+      }
+
+      .date-box {
+        padding:11px 8px;
+      }
+
+      .date-value {
+        font-size:11px;
+      }
+
+      .details h2 {
+        font-size:16px;
+      }
+
+      .rules,
+      .prizes li,
+      .highlight {
+        font-size:12px;
+      }
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+
+      .promo-modal {
+        animation:enter .42s cubic-bezier(.2,.8,.25,1) both;
+      }
+
+      @keyframes enter {
+        from {
+          opacity:0;
+          transform:translateY(14px) scale(.98);
+        }
+
+        to {
+          opacity:1;
+          transform:none;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="promo-overlay">
+
+    <main class="promo-modal">
+
+      <div class="promo-scroll">
+
+        <!-- HERO -->
+        <section class="hero">
+
+          <div class="hero-media">
+
+            <img
+              src="https://i.ibb.co/NdPxNMt7/Haftal-k-ekili-Promo.webpp"
+              alt="RitzBet x Mercedes-Benz Haftalık Dev Çekiliş"
+            >
+
+          </div>
+
+        </section>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+          <p class="eyebrow">👑 RitzBet x Mercedes-Benz</p>
+
+          <h1 class="title">
+            HAFTALIK DEV ÇEKİLİŞ
+          </h1>
+
+          <p class="intro-text">
+            RitzBet’in Mercedes-Benz iş birliğiyle düzenlediği
+            <strong>Haftalık Dev Çekiliş</strong> başladı! 🤩
+            Büyük ödüller ve toplam <strong>1.000.000 TL</strong>
+            ödül havuzuyla şansını artır!
+          </p>
+
+
+          <!-- TARİHLER -->
+          <div class="dates">
+
+            <div class="date-box">
+              <span class="date-label">Başlangıç</span>
+              <span class="date-value">
+                14 Eylül 2026 - 00:00
+              </span>
+            </div>
+
+            <div class="date-box">
+              <span class="date-label">Bitiş</span>
+              <span class="date-value">
+                21 Eylül 2026 - 00:00
+              </span>
+            </div>
+
+          </div>
+
+
+          <section class="details">
+
+
+            <!-- ÖDÜLLER -->
+            <div class="rule-group">
+
+              <h2>Dev Ödüller</h2>
+
+              <ul class="prizes">
+
+                <li>
+                  <strong>1. Ödül</strong><br>
+                  Mercedes-Benz CLA 200 4MATIC AMG
+                </li>
+
+                <li>
+                  <strong>2. Ödül</strong><br>
+                  Mercedes-Benz A 200 FL AMG
+                </li>
+
+                <li>
+                  <strong>Ek Büyük Ödül Havuzu</strong><br>
+                  Toplam <strong>1.000.000 TL</strong> ödül havuzu
+                  ile <strong>100 şanslı kazanan</strong>!
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <!-- BİLET -->
+            <div class="rule-group">
+
+              <h2>Çekiliş Bileti Nasıl Kazanılır?</h2>
+
+              <ul class="rules">
+
+                <li>
+                  Her <strong>500 ₺ yatırımınıza 1 çekiliş bileti</strong>
+                  kazanırsınız.
+                </li>
+
+                <li>
+                  Yatırım sonrasında çekiliş biletleriniz
+                  <strong>otomatik olarak hesabınıza tanımlanır.</strong>
+                </li>
+
+                <li>
+                  500 ₺ yatırım yapma zorunluluğu yoktur.
+                  Örneğin <strong>5.000 ₺ yatırım</strong> yapmanız
+                  durumunda hesabınıza <strong>10 bilet</strong>
+                  tanımlanır.
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <!-- NAKİT ÖDÜL -->
+            <div class="rule-group">
+
+              <h2>Nakit Ödül Şartı</h2>
+
+              <div class="highlight">
+                Eklenen nakit ödüllerin <strong>herhangi bir çevrim
+                veya ek şartı bulunmamaktadır.</strong>
+                Ödüller <strong>ana para</strong> olarak
+                nitelenmektedir.
+              </div>
+
+            </div>
+
+
+            <!-- BİLET KONTROL -->
+            <div class="rule-group">
+
+              <h2>Biletlerini Kontrol Et</h2>
+
+              <a
+                class="ticket-button"
+                href="https://dub.sh/RitzbetCekilis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🎟️ RİTZBET ÇEKİLİŞİ DURUMUM
+              </a>
+
+            </div>
+
+
+            <!-- SON MESAJ -->
+            <div class="rule-group">
+
+              <div class="highlight">
+                <strong>Şansını dene, çekilişe katıl ve
+                RitzBet’in büyük ödül heyecanına ortak ol!</strong> 🤩👑
+              </div>
+
+            </div>
+
+
+          </section>
+
+
+          <p class="footnote">
+            RitzBet kampanya şartlarını değiştirme veya sonlandırma
+            hakkını saklı tutar.
+          </p>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
