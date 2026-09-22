@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="RitzBet VIP ve Kumbara sisteminin seviyeleri, işleyişi ve ayrıcalıkları.">
+  <title>RitzBet VIP &amp; Kumbara | VIP Dönemi Başlıyor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:#ffd447;
+      --gold-soft:#fff0a1;
+      --text:#f7f9ff;
+      --muted:#c9d0dc;
+      --panel:rgba(0,0,0,.42);
+      --panel-2:rgba(0,0,0,.52);
+      --line:rgba(255,255,255,.14);
+    }
+
+    * { box-sizing:border-box; }
+
+    html,body {
+      width:100%;
+      max-width:100%;
+      min-height:100%;
+      margin:0;
+      overflow-x:hidden;
+    }
+
+    body {
+      background:transparent;
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .promo-overlay {
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      overflow:hidden;
+      background:transparent;
+    }
+
+    .promo-modal {
+      width:min(730px,100%);
+      max-width:100%;
+      height:100%;
+      position:relative;
+      overflow:hidden;
+      padding-right:9px;
+      background:transparent;
+    }
+
+    .promo-scroll {
+      width:100%;
+      height:100%;
+      overflow-y:auto;
+      overflow-x:hidden;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(255,255,255,.26) rgba(255,255,255,.06);
+    }
+
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track {
+      border-radius:20px;
+      background:rgba(255,255,255,.06);
+    }
+    .promo-scroll::-webkit-scrollbar-thumb {
+      border:2px solid transparent;
+      border-radius:20px;
+      background:rgba(255,255,255,.26);
+      background-clip:padding-box;
+    }
+    .promo-scroll::-webkit-scrollbar-thumb:hover {
+      background:rgba(255,255,255,.45);
+      background-clip:padding-box;
+    }
+    .promo-scroll::-webkit-scrollbar-button { display:none; }
+
+    .hero { position:relative; z-index:1; }
+
+    .hero-media {
+      position:relative;
+      aspect-ratio:750 / 350;
+      overflow:hidden;
+      border-radius:15px 15px 0 0;
+      background:#060606;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .hero-media img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .hero-media::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(180deg,transparent 62%,rgba(0,0,0,.28));
+    }
+
+    .content {
+      position:relative;
+      z-index:1;
+      padding:36px 56px 28px;
+      overflow:hidden;
+      border-radius:0 0 15px 15px;
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .content::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.20;
+      background:radial-gradient(circle at 95% 85%,#d4a522,transparent 31%);
+    }
+
+    .content > * { position:relative; }
+
+    .eyebrow {
+      margin:0 0 9px;
+      color:var(--gold);
+      text-align:center;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+    }
+
+    .title {
+      margin:0 0 14px;
+      font-family:'Montserrat',sans-serif;
+      font-size:27px;
+      font-weight:900;
+      line-height:1.2;
+      text-align:center;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 3s linear infinite;
+      filter:drop-shadow(0 3px 10px rgba(255,212,71,.45));
+    }
+
+    @keyframes shine { to { background-position:200% center; } }
+
+    .intro-text {
+      max-width:570px;
+      margin:0 auto 25px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .intro-text strong { color:var(--gold-soft); }
+
+    .benefit-strip {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:9px;
+      margin:0 auto 26px;
+    }
+
+    .benefit {
+      padding:13px 8px;
+      border:1px solid rgba(255,212,71,.20);
+      border-radius:11px;
+      background:linear-gradient(145deg,rgba(255,212,71,.10),rgba(0,0,0,.20));
+      color:#f2f4f8;
+      text-align:center;
+      font-size:10px;
+      font-weight:800;
+      line-height:1.35;
+      letter-spacing:.25px;
+      text-transform:uppercase;
+    }
+
+    .benefit span {
+      display:block;
+      margin-bottom:6px;
+      font-size:20px;
+    }
+
+    .levels-label {
+      margin:0 0 10px;
+      color:#aeb5c1;
+      text-align:center;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .level-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
+      margin:0 auto 28px;
+    }
+
+    .level {
+      padding:12px 6px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:rgba(0,0,0,.22);
+      text-align:center;
+      font-family:'Montserrat',sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+
+    .level::before {
+      content:"";
+      display:block;
+      width:24px;
+      height:3px;
+      margin:0 auto 8px;
+      border-radius:4px;
+      background:var(--level-color,var(--gold));
+      box-shadow:0 0 12px var(--level-glow,rgba(255,212,71,.28));
+    }
+
+    .level-bronze { --level-color:#c98b55; --level-glow:rgba(201,139,85,.35); }
+    .level-silver { --level-color:#d9e0e8; --level-glow:rgba(217,224,232,.32); }
+    .level-gold { --level-color:#ffd447; --level-glow:rgba(255,212,71,.35); }
+    .level-platinum { --level-color:#b6f0e7; --level-glow:rgba(182,240,231,.32); }
+    .level-diamond { --level-color:#8ed8ff; --level-glow:rgba(142,216,255,.36); }
+
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:25px; }
+
+    .details h2 {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:0 0 14px;
+      padding:0 0 11px;
+      border-bottom:1px solid rgba(255,255,255,.16);
+      color:var(--gold);
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .section-icon {
+      width:27px;
+      height:27px;
+      display:grid;
+      place-items:center;
+      flex:0 0 27px;
+      border:1px solid rgba(255,212,71,.28);
+      border-radius:50%;
+      background:rgba(255,212,71,.08);
+      font-size:14px;
+    }
+
+    .journey {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .journey-card {
+      position:relative;
+      min-height:190px;
+      padding:42px 15px 15px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:10px;
+      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.23));
+      color:#e2e6ee;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .step-number {
+      position:absolute;
+      top:13px;
+      left:15px;
+      color:rgba(255,212,71,.45);
+      font-family:'Montserrat',sans-serif;
+      font-size:25px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .journey-card strong {
+      display:block;
+      margin-bottom:7px;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+
+    .journey-note {
+      margin-top:8px;
+      color:#fff0a1;
+      font-size:10px;
+      font-weight:700;
+      line-height:1.45;
+    }
+
+    .kumbara-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .kumbara-card {
+      min-height:118px;
+      padding:15px;
+      border:1px solid rgba(255,212,71,.22);
+      border-radius:10px;
+      background:rgba(255,212,71,.06);
+      color:#e2e6ee;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .kumbara-card .emoji {
+      display:block;
+      margin-bottom:7px;
+      font-size:21px;
+    }
+
+    .kumbara-card strong { color:var(--gold); }
+
+    .highlight {
+      margin:0;
+      padding:15px 17px;
+      border:1px solid rgba(255,212,71,.28);
+      border-radius:10px;
+      background:rgba(255,212,71,.08);
+      color:#e2e6ee;
+      text-align:center;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .highlight strong { color:var(--gold); }
+
+    .footnote {
+      margin:21px 0 0;
+      padding:14px 0 0;
+      border-top:1px solid rgba(255,255,255,.13);
+      color:#b9c0cc;
+      text-align:center;
+      font-size:10px;
+      line-height:1.5;
+    }
+
+    @media (max-width:560px) {
+      .promo-modal { width:100%; padding-right:0; }
+      .hero-media { border-radius:0; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:21px; }
+      .intro-text { margin-bottom:22px; font-size:13px; }
+      .benefit-strip { gap:6px; }
+      .benefit { padding:11px 5px; font-size:9px; }
+      .benefit span { font-size:18px; }
+      .level-grid { grid-template-columns:repeat(3,1fr); }
+      .level:nth-child(4) { grid-column:1 / 2; }
+      .level:nth-child(5) { grid-column:2 / 4; }
+      .details h2 { font-size:16px; }
+      .journey { grid-template-columns:1fr; }
+      .journey-card { min-height:0; }
+      .journey-card,.kumbara-card,.highlight { font-size:12px; }
+      .kumbara-grid { grid-template-columns:1fr; }
+      .kumbara-card { min-height:0; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .title { animation:none; }
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; }
+      @keyframes enter {
+        from { opacity:0; transform:translateY(14px) scale(.98); }
+        to { opacity:1; transform:none; }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+        <section class="hero">
+          <div class="hero-media">
+            <img
+              src="https://i.ibb.co/whxd6SS3/V-P-D-nem-Ba-l-yor-Promo.jpg"
+              alt="RitzBet VIP dönemi başlıyor"
+            >
+          </div>
+        </section>
+
+        <section class="content">
+          <p class="eyebrow">👑 RitzBet VIP &amp; Kumbara</p>
+          <h1 class="title">VIP Dönemi Başlıyor</h1>
+          <p class="intro-text">
+            Tek sistem, iki ayrı kazanç: Oynadıkça VIP seviyeni yükseltirken
+            her bahsinden <strong>kumbarana nakit pay biriktir.</strong>
+          </p>
+
+          <div class="benefit-strip" aria-label="VIP sisteminin öne çıkan avantajları">
+            <div class="benefit"><span aria-hidden="true">⚡</span>Otomatik VIP Puanı</div>
+            <div class="benefit"><span aria-hidden="true">📈</span>Artan Kumbara Oranı</div>
+            <div class="benefit"><span aria-hidden="true">🎁</span>Seviyeye Özel Ödül</div>
+          </div>
+
+          <p class="levels-label">5 ayrıcalıklı VIP seviyesi</p>
+          <div class="level-grid" aria-label="VIP seviyeleri">
+            <div class="level level-bronze">Bronze</div>
+            <div class="level level-silver">Silver</div>
+            <div class="level level-gold">Gold</div>
+            <div class="level level-platinum">Platinum</div>
+            <div class="level level-diamond">Diamond</div>
+          </div>
+
+          <section class="details">
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">★</span> 3 Adımda VIP Yolculuğu</h2>
+              <div class="journey">
+                <article class="journey-card">
+                  <span class="step-number">01</span>
+                  <strong>Bronze'dan Başla</strong>
+                  Onaylanan ilk yatırımınla VIP sistemine otomatik olarak dahil ol ve Bronze seviyesinden yolculuğuna başla.
+                </article>
+                <article class="journey-card">
+                  <span class="step-number">02</span>
+                  <strong>Oyna &amp; Yüksel</strong>
+                  Casino bahislerin otomatik olarak VIP puanına dönüşür. Seviye eşiğini doldurdukça bir üst kademeye geçersin.
+                  <div class="journey-note">Ekstra işlem yapmana gerek yok.</div>
+                </article>
+                <article class="journey-card">
+                  <span class="step-number">03</span>
+                  <strong>Koru &amp; Ödülünü Al</strong>
+                   Çevrim hedefini tamamla, ulaştığın seviyenin ödülünü kartından talep et ve özel kampanyaları aç.
+                  <div class="journey-note">Bronze ve Diamond seviyeleri düşmez.</div>
+                </article>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">₺</span> Kumbara Sistemi</h2>
+              <div class="kumbara-grid">
+                <div class="kumbara-card">
+                  <span class="emoji" aria-hidden="true"></span>
+                  💸 Kazansan da kaybetsen de her bahsinden <strong>kumbarana otomatik pay eklenir.</strong>
+                </div>
+                <div class="kumbara-card">
+                  <span class="emoji" aria-hidden="true"></span>
+                  Biriken 💰 <strong>nakit ödülünü</strong> Kumbara sayfasından takip et; talep edilebilir tutarı dilediğin an hesabına aktar.
+                </div>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <div class="highlight">
+                ⏳ <strong>Haftalık kumbaran dönem sonunda sıfırlanır.</strong><br>
+                Süren dolmadan ödülünü talep etmeyi unutma!
+              </div>
+            </div>
+          </section>
+
+          <p class="footnote">
+            RitzBet, kampanya ve VIP sistemi koşullarında değişiklik yapma hakkını saklı tutar.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
