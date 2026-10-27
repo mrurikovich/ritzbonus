@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="RitzBet Pragmatic Play Drops & Wins Turnuvası. 25.000.000€ ödül havuzlu günlük slot turnuvalarına katılın ve çark ödüllerini yakalayın.">
+  <title>RitzBet | Drops & Wins Turnuvası</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:#ffd447;
+      --gold-soft:#fff0a1;
+      --text:#f7f9ff;
+      --muted:#c9d0dc;
+      --panel:rgba(0,0,0,.43);
+      --panel-2:rgba(0,0,0,.54);
+      --line:rgba(255,255,255,.14);
+      --danger:#ffb16b;
+    }
+
+    * { box-sizing:border-box; }
+
+    html,body {
+      width:100%;
+      max-width:100%;
+      min-height:100%;
+      margin:0;
+      overflow-x:hidden;
+    }
+
+    body {
+      background:transparent;
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .promo-overlay {
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      overflow:hidden;
+      background:transparent;
+    }
+
+    .promo-modal {
+      width:min(730px,100%);
+      max-width:100%;
+      height:100%;
+      position:relative;
+      overflow:hidden;
+      padding-right:9px;
+      background:transparent;
+    }
+
+    .promo-scroll {
+      width:100%;
+      height:100%;
+      overflow-y:auto;
+      overflow-x:hidden;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(255,255,255,.26) rgba(255,255,255,.06);
+    }
+
+    .promo-scroll::-webkit-scrollbar { width:6px; }
+    .promo-scroll::-webkit-scrollbar-track {
+      border-radius:20px;
+      background:rgba(255,255,255,.06);
+    }
+    .promo-scroll::-webkit-scrollbar-thumb {
+      border:2px solid transparent;
+      border-radius:20px;
+      background:rgba(255,255,255,.26);
+      background-clip:padding-box;
+    }
+    .promo-scroll::-webkit-scrollbar-thumb:hover {
+      background:rgba(255,255,255,.45);
+      background-clip:padding-box;
+    }
+    .promo-scroll::-webkit-scrollbar-button { display:none; }
+
+    .hero { position:relative; z-index:1; }
+
+    .hero-media {
+      position:relative;
+      aspect-ratio:750 / 350;
+      overflow:hidden;
+      border-radius:15px 15px 0 0;
+      background:#070503;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .hero-media img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .hero-media::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(180deg,transparent 64%,rgba(0,0,0,.28));
+    }
+
+    .content {
+      position:relative;
+      z-index:1;
+      padding:36px 56px 28px;
+      overflow:hidden;
+      border-radius:0 0 15px 15px;
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .content::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      background:
+        radial-gradient(circle at 94% 14%,#d4a522,transparent 26%),
+        radial-gradient(circle at 6% 88%,#8a5611,transparent 24%);
+    }
+
+    .content > * { position:relative; }
+
+    .eyebrow {
+      margin:0 0 9px;
+      color:var(--gold);
+      text-align:center;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+    }
+
+    .title {
+      margin:0 0 14px;
+      font-family:'Montserrat',sans-serif;
+      font-size:27px;
+      font-weight:900;
+      line-height:1.18;
+      text-align:center;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 3s linear infinite;
+      filter:drop-shadow(0 3px 10px rgba(255,212,71,.45));
+    }
+
+    @keyframes shine { to { background-position:200% center; } }
+
+    .intro-text {
+      max-width:570px;
+      margin:0 auto 24px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .intro-text strong { color:var(--gold-soft); }
+
+    .quick-facts {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:9px;
+      margin:0 auto 28px;
+    }
+
+    .fact {
+      padding:14px 8px 13px;
+      border:1px solid rgba(255,212,71,.22);
+      border-radius:11px;
+      background:linear-gradient(145deg,rgba(255,212,71,.11),rgba(0,0,0,.20));
+      text-align:center;
+    }
+
+    .fact-value {
+      display:block;
+      margin-bottom:5px;
+      color:var(--gold);
+      font-family:'Montserrat',sans-serif;
+      font-size:19px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .fact-label {
+      color:#e6e9ef;
+      font-size:9px;
+      font-weight:800;
+      line-height:1.35;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+    }
+
+    .details { margin:0; padding:0 4px; }
+    .rule-group + .rule-group { margin-top:25px; }
+
+    .details h2 {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:0 0 14px;
+      padding:0 0 11px;
+      border-bottom:1px solid rgba(255,255,255,.16);
+      color:var(--gold);
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .section-icon {
+      width:27px;
+      height:27px;
+      display:grid;
+      place-items:center;
+      flex:0 0 27px;
+      border:1px solid rgba(255,212,71,.28);
+      border-radius:50%;
+      background:rgba(255,212,71,.08);
+      font-size:14px;
+    }
+
+    .steps {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .step {
+      position:relative;
+      min-height:184px;
+      padding:43px 15px 15px;
+      border:1px solid var(--line);
+      border-radius:11px;
+      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.23));
+      color:#e2e6ee;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .step-number {
+      position:absolute;
+      top:13px;
+      left:15px;
+      color:rgba(255,212,71,.46);
+      font-family:'Montserrat',sans-serif;
+      font-size:25px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .step strong {
+      display:block;
+      margin-bottom:7px;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+    }
+
+    .example {
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:14px;
+      align-items:center;
+      padding:16px 17px;
+      border:1px solid rgba(255,212,71,.27);
+      border-radius:11px;
+      background:rgba(255,212,71,.07);
+    }
+
+    .example-badge {
+      min-width:96px;
+      padding:13px 10px;
+      border-radius:9px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+      color:#15110a;
+      text-align:center;
+      font-family:'Montserrat',sans-serif;
+      font-size:17px;
+      font-weight:900;
+      line-height:1.15;
+      box-shadow:0 8px 22px rgba(255,212,71,.14);
+    }
+
+    .example-text {
+      color:#e2e6ee;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .example-text strong { color:var(--gold); }
+
+    .rules {
+      display:grid;
+      gap:9px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .rules li {
+      position:relative;
+      padding:12px 14px 12px 41px;
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:10px;
+      background:rgba(0,0,0,.20);
+      color:#e2e6ee;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .rules li::before {
+      content:"✓";
+      position:absolute;
+      top:12px;
+      left:15px;
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .rules strong { color:var(--gold-soft); }
+
+    .warning {
+      padding:16px 18px;
+      border:1px solid rgba(255,177,107,.38);
+      border-radius:11px;
+      background:linear-gradient(135deg,rgba(255,177,107,.12),rgba(255,212,71,.06));
+      color:#f1e8df;
+      text-align:center;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .warning strong { color:var(--danger); }
+
+    .footnote {
+      margin:21px 0 0;
+      padding:14px 0 0;
+      border-top:1px solid rgba(255,255,255,.13);
+      color:#b9c0cc;
+      text-align:center;
+      font-size:10px;
+      line-height:1.5;
+    }
+
+    @media (max-width:560px) {
+      .promo-modal { width:100%; padding-right:0; }
+      .hero-media { border-radius:0; }
+      .content { padding:31px 20px 26px; }
+      .title { font-size:21px; }
+      .intro-text { margin-bottom:22px; font-size:13px; }
+      .quick-facts { gap:6px; }
+      .fact { padding:12px 5px; }
+      .fact-value { font-size:14px; }
+      .fact-label { font-size:8px; }
+      .details h2 { font-size:16px; }
+      .steps { grid-template-columns:1fr; }
+      .step { min-height:0; }
+      .example { grid-template-columns:1fr; text-align:center; }
+      .example-badge { width:100%; }
+      .warning { font-size:12px; }
+    }
+
+    .rules li { padding-left:14px; }
+    .rules li::before { content:""; }
+    .rules { counter-reset:terms; }
+    .rules li { counter-increment:terms; }
+    .rules li::before {
+      content:counter(terms) ".";
+      top:12px;
+      left:14px;
+      color:var(--gold);
+      font-weight:900;
+    }
+    .rules li { padding-left:36px; }
+    .rules ol, .rules ul { margin-top:10px; }
+    @media (max-width:560px) {
+      .rules li { padding-left:34px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .title { animation:none; }
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .promo-modal { animation:enter .42s cubic-bezier(.2,.8,.25,1) both; }
+      @keyframes enter {
+        from { opacity:0; transform:translateY(14px) scale(.98); }
+        to { opacity:1; transform:none; }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="promo-overlay">
+    <main class="promo-modal">
+      <div class="promo-scroll">
+        <section class="hero">
+          <div class="hero-media">
+            <img
+              src="https://i.ibb.co/7tCQ7Wg1/Drop-Wins-Turnuvas-Promo.webp"
+              alt="RitzBet Drops & Wins — Pragmatic Play promosyonu"
+            >
+          </div>
+        </section>
+
+        <section class="content">
+          <p class="eyebrow">🎟️ Pragmatic Play Promosyonu</p>
+          <h1 class="title">Drops & Wins Turnuvası!</h1>
+          <p class="intro-text">
+            Pragmatic Play sağlayıcısından toplam 25.000.000,00€ ödül havuzlu Drops & Wins turnuvası <strong>RitzBet</strong>'te! Günlük slot turnuvalarına katılın ve haftalık çark ödüllerini yakalayın.
+          </p>
+
+          <div class="quick-facts" aria-label="Promosyonun öne çıkan bilgileri">
+            <div class="fact">
+              <span class="fact-value">25 Mn €</span>
+              <span class="fact-label">Toplam Ödül</span>
+            </div>
+            <div class="fact">
+              <span class="fact-value">5 Milyon</span>
+              <span class="fact-label">Ödül Adedi</span>
+            </div>
+            <div class="fact">
+              <span class="fact-value">3 Nis 27</span>
+              <span class="fact-label">Bitiş Tarihi</span>
+            </div>
+          </div>
+
+          <section class="details">
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">★</span> Nasıl Katılabilirsiniz?</h2>
+              <div class="steps">
+                <article class="step">
+                  <span class="step-number">01</span>
+                  <strong>Günlük Turnuvaya Katıl</strong>
+                  Minimum 7,50₺ bahisle günlük slot turnuvasında çarpan puanları toplayın.
+                </article>
+                <article class="step">
+                  <span class="step-number">02</span>
+                  <strong>Çark Parçalarını Topla</strong>
+                  Slot oyunlarında rastgele düşen parçaları biriktirin; minimum üç parçayla ödül kazanın.
+                </article>
+                <article class="step">
+                  <span class="step-number">03</span>
+                  <strong>Ödülleri Kazan</strong>
+                  Günlük sıralama ödülleri, nakit bahis çarpanları veya free spin ödülleri kazanın.
+                </article>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">1</span> Günlük Slot Turnuvaları</h2>
+              <p class="intro-text" style="margin:0 auto 16px; text-align:left;">
+                Günlük slot turnuvaları her gün düzenlenir. Katılım için minimum <strong>7,50₺</strong> bahis almanız gerekmektedir. Günlük sadece ilk <strong>5.000 bahis</strong> sayılır ve ödül kazanma şansı yakalar.
+              </p>
+              
+              <div class="example">
+                <div class="example-badge">Puan<br>Sistemi</div>
+                <div class="example-text">
+                  Puanlar, yapılan bahislerin kazanç çarpanına göre (kazanç / bahis) hesaplanır. <strong>Sadece 1'den büyük çarpanlar puan getirir.</strong><br><br>
+                  ✅ 10₺ bahis → 20₺ kazanç = <strong>2x (Puan Verir)</strong><br>
+                  ❌ 10₺ bahis → 8₺ kazanç = <strong>0,8x (Puan Vermez)</strong>
+                </div>
+              </div>
+
+              <h2 style="font-size:14px; margin-top:20px;">Günlük Ödüller — Toplam 1.000.000₺</h2>
+              <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;line-height:1.45;">
+                  <thead>
+                    <tr>
+                      <th style="padding:10px 8px;text-align:left;border-bottom:1px solid rgba(255,212,71,.35);color:var(--gold);">Sıralama</th>
+                      <th style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,212,71,.35);color:var(--gold);">Ödül Miktarı</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">1.</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>150.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">2.</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>100.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">3 - 4</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>50.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">5 - 10</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>25.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">11 - 20</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>10.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">21 - 40</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>5.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">41 - 80</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>2.500,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">81 - 160</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>1.000,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">161 - 300</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>500,00 ₺</strong></td></tr>
+                    <tr><td style="padding:10px 8px;">301 - 500</td><td style="padding:10px 8px;text-align:right;"><strong>250,00 ₺</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">2</span> Haftalık Çark Ödülleri</h2>
+              <p class="intro-text" style="margin:0 auto 16px; text-align:left;">
+                Turnuva her hafta Çarşamba 20:01'de başlar ve sonraki Çarşamba 19:59'da biter. Katılım için minimum bahis şartı yoktur. Oyun sırasında sistem rastgele çark parçaları verir.
+              </p>
+              
+              <div class="example">
+                <div class="example-badge">Çark<br>Ödülü</div>
+                <div class="example-text">
+                  <strong>Minimum 3 çark parçası</strong> toplandığında parçalar sıfırlanır ve ödül (Nakit Çarpan veya Free Spin) otomatik aktarılır. Ardından süreç yeniden başlar.
+                </div>
+              </div>
+
+              <h2 style="font-size:14px; margin-top:20px;">Nakit Çarpan & Free Spin Dağılımı</h2>
+              <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;line-height:1.45;">
+                  <thead>
+                    <tr>
+                      <th style="padding:10px 8px;text-align:left;border-bottom:1px solid rgba(255,212,71,.35);color:var(--gold);">Ödül Türü</th>
+                      <th style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,212,71,.35);color:var(--gold);">Adet</th>
+                      <th style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,212,71,.35);color:var(--gold);">Kazanç</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">1 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>100.000x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">3 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>10.000x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">6 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>5.000x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">10 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>1.000x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">30 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>500x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">50 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>100x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">300 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>50x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">7.500 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>10x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Nakit Çarpan</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">69.000 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>5x</strong></td></tr>
+                    <tr><td style="padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.1);">Free Spin</td><td style="padding:10px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);">5.000 Adet</td><td style="padding:10px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);"><strong>20 Free Spins</strong></td></tr>
+                    <tr><td style="padding:10px 8px;">Free Spin</td><td style="padding:10px 8px;text-align:center;">15.000 Adet</td><td style="padding:10px 8px;text-align:right;"><strong>10 Free Spins</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <h2><span class="section-icon" aria-hidden="true">i</span> Genel Turnuva Şartları</h2>
+              <ol class="rules" style="list-style:none;counter-reset:terms;">
+                <li><strong>Turnuva Kapsamı:</strong> 04.04.2026 ile 03.04.2027 tarihleri arasında toplamda 5.000.000 adet ödül dağıtılacaktır. Turnuva, Günlük Slot Turnuvaları ve Haftalık Çark Ödülleri olmak üzere iki ana bölümden oluşur.</li>
+                <li><strong>Kurallar ve Haklar:</strong> PRAGMATIC PLAY ve <strong>RitzBet</strong> bu promosyonu dilediği zaman değiştirme veya iptal etme hakkını saklı tutar. Bu kurallar <strong>RitzBet</strong> Genel Hüküm ve Koşullarını içerir.</li>
+                <li><strong>Geçerli Oyunlar:</strong> Gates of Olympus Super Scatter, Gates of Olympus 1000, Sweet Bonanza 1000, Sugar Rush 1000, Gates of Olympus, Sweet Bonanza, Sugar Rush Super Scatter, Big Bass Splash, Sweet Rush Bonanza, Big Bass Bonanza, Starlight Princess 1000, Fortune of Olympus, Zeus vs Hades - Gods of War 250, Sweet Bonanza Super Scatter, Sugar Rush, Zeus vs Hades - Gods of War, Big Bass Bonanza 1000, 5 Lions Megaways, Big Bass Vegas Double Down Deluxe, Bigger Bass Bonanza, The Dog House Megaways, The Dog House, Starlight Princess Super Scatter, Big Bass Splash 1000, Big Bass - Secrets of the Golden Lake, Fruit Party, Starlight Princess, Book of Fallen, Big Bass Boxing Bonus Round, Big Bass Floats my Boat, Fire Stampede Ultimate, 5 Lions Megaways 2, Wild West Gold, Wisdom of Athena 1000, Bigger Bass Splash, 3 Magic Eggs, Big Bass - Hold & Spinner, Great Rhino Megaways, Big Bass Reel Repeat, Gates of Hades, Big Bass Amazon Xtreme, Big Bass Mission Fishin’, Mummy’s Jewels 100, Mustang Gold, Bigger Barn House Bonanza, Rolling in Treasures, Haunted Crypt, Wild Skullz, Tut’s Treasure Tower, Big Bass Raceday Repeat, Cyberheist City, Lucky’s Wild Pub 2, CULT., Happy Dragon, Triple Pot Diamond ve Snow Party.</li>
+              </ol>
+            </div>
+          </section>
+
+          <p class="footnote">
+            RitzBet, kampanya koşullarında değişiklik yapma veya kampanyayı sonlandırma hakkını saklı tutar.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
